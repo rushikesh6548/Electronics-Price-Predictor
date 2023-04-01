@@ -16,7 +16,7 @@ def get_requirements(file_path:str)->List[str]:
 
 
 
-setup(name = "Electronic Price Predictor",
+setup(name = "Electronics-Price-Predictor",
         version = "0.0.1",
         author = "Rushikesh Wakhare",
         author_email = "rrushi6548@gmail.com",
