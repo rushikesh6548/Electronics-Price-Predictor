@@ -1,0 +1,6 @@
+setup.py
+Electronic_Price_Predictor.egg-info/PKG-INFO
+Electronic_Price_Predictor.egg-info/SOURCES.txt
+Electronic_Price_Predictor.egg-info/dependency_links.txt
+Electronic_Price_Predictor.egg-info/requires.txt
+Electronic_Price_Predictor.egg-info/top_level.txt
