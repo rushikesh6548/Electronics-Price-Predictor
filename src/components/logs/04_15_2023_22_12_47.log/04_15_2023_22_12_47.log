@@ -1,0 +1,7 @@
+[ 2023-04-15 22:12:47,192 ] 52 root - INFO - Initiated data transformation 
+[ 2023-04-15 22:12:47,200 ] 57 root - INFO - Read Train and test data and saved it as pandas Dataframe
+[ 2023-04-15 22:12:47,200 ] 59 root - INFO - Obtaining Transformation object and saving a .pkl file 
+[ 2023-04-15 22:12:47,201 ] 63 root - INFO - Loaded transformation object and saved a transformation.pkl file in artifacts 
+[ 2023-04-15 22:12:47,202 ] 74 root - INFO - Applying Transformation object i.e , One hot Encoding the categorical columns and Standard Scaling the Numerical Columns
+[ 2023-04-15 22:12:47,213 ] 88 root - INFO - PERFORMED DATA TRANSFORMATION OF TRAIN AND TEST DATA INPUT FEATURES
+[ 2023-04-15 22:12:47,214 ] 90 root - INFO - RETURNED THE TRAIN , TEST Data INPUT FEATURES WITH INITIATE DATA TRANSFORMATION

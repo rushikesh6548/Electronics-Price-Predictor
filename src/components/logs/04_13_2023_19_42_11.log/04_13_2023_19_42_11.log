@@ -1,0 +1,4 @@
+[ 2023-04-13 19:42:12,713 ] 26 root - INFO - Entered data ingestion part 
+[ 2023-04-13 19:42:13,199 ] 29 root - INFO - Read the data as pandas dataframe
+[ 2023-04-13 19:42:13,214 ] 35 root - INFO - Train test split initiated
+[ 2023-04-13 19:42:13,230 ] 43 root - INFO - Train and test data split done and saved to path
