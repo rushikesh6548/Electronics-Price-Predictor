@@ -3,4 +3,5 @@ numpy
 bs4
 requests
 selenium
+catboost
 -e .

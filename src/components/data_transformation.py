@@ -107,3 +107,4 @@ if __name__ == "__main__":
     datatrans_obj = DataTransformation()
     datatrans_obj.get_transformation_obj()
     datatrans_obj.initiate_data_transformation(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv',test_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\test.csv')
+
