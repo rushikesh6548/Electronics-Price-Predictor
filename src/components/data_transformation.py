@@ -20,14 +20,14 @@ class DataTransformation():
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
-    def get_transformation_obj(self):
+    def get_transformation_obj(self):  # Will return a data transformation object and will save it as well as a pickle file
 
         try:
             categorical_cols_names  = ['brand_name', 'model_name', 'processor_brand', 'processor_model','ram_type', 'operating_sys']
             numerical_cols_name = ['ram_size', 'ssd_size_gb', 'hdd_size_gb', 'display_size', 'warranty','touchscreen', 'graphics_size']
 
-            transformation = ColumnTransformer([
-                ('one_hot_encoding', OneHotEncoder(handle_unknown='ignore',sparse=False),categorical_cols_names),
+            transformation = ColumnTransformer(transformers = [
+                ('one_hot_encoding', OneHotEncoder(handle_unknown='ignore'),categorical_cols_names),
                 ('st_scaler', StandardScaler(), numerical_cols_name)
             ])
 
@@ -65,11 +65,11 @@ class DataTransformation():
             target_column_name = 'price'
 
             input_features_train_df = train_df.drop([target_column_name], axis=1)  # This is our input features for training data !  [Independent Variables]
-            target_feature_train_df = np.log(train_df[target_column_name]) # This is our training data's target column i.e , price  [Dependent Variables]
+            target_feature_train_df = train_df[target_column_name] # This is our training data's target column i.e , price  [Dependent Variables]
             # We applied a log as we saw in EDA that the price column is higly right skewed !
 
             input_features_test_df = test_df.drop([target_column_name], axis = 1) # These are our input features for testing data [Independent variables]
-            target_feature_test_df = np.log(test_df[target_column_name]) # This is our testing data's target column i.e , price [Dependent Variable]
+            target_feature_test_df = test_df[target_column_name] # This is our testing data's target column i.e , price [Dependent Variable]
 
             logging.info("Applying Transformation object i.e , One hot Encoding the categorical columns and Standard Scaling the Numerical Columns")
 

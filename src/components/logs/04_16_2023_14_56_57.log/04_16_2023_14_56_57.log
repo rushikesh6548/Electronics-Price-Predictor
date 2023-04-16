@@ -1,0 +1,15 @@
+[ 2023-04-16 14:56:57,413 ] 26 root - INFO - Entered data ingestion part 
+[ 2023-04-16 14:56:57,883 ] 29 root - INFO - Read the data as pandas dataframe
+[ 2023-04-16 14:56:57,891 ] 35 root - INFO - Train test split initiated
+[ 2023-04-16 14:56:57,898 ] 43 root - INFO - Train and test data split done and saved to path
+[ 2023-04-16 14:56:57,898 ] 52 root - INFO - Initiated data transformation 
+[ 2023-04-16 14:56:57,911 ] 57 root - INFO - Read Train and test data and saved it as pandas Dataframe
+[ 2023-04-16 14:56:57,911 ] 59 root - INFO - Obtaining Transformation object and saving a .pkl file 
+[ 2023-04-16 14:56:57,911 ] 63 root - INFO - Loaded transformation object and saved a transformation.pkl file in artifacts 
+[ 2023-04-16 14:56:57,912 ] 74 root - INFO - Applying Transformation object i.e , One hot Encoding the categorical columns and Standard Scaling the Numerical Columns
+[ 2023-04-16 14:56:57,923 ] 88 root - INFO - PERFORMED DATA TRANSFORMATION OF TRAIN AND TEST DATA INPUT FEATURES
+[ 2023-04-16 14:56:57,923 ] 90 root - INFO - RETURNED THE TRAIN , TEST Data INPUT FEATURES WITH INITIATE DATA TRANSFORMATION
+[ 2023-04-16 14:56:57,924 ] 52 root - INFO - Defined X_train,y_train,X_test,y_Test
+[ 2023-04-16 14:56:57,924 ] 67 root - INFO - Initiating Model Evaluation for all the models
+[ 2023-04-16 14:57:02,008 ] 86 root - INFO - Completed Model Evaluation for all models
+[ 2023-04-16 14:57:02,008 ] 89 root - INFO - Finding the best model 

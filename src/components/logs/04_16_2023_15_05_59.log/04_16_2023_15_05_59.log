@@ -1,0 +1,11 @@
+[ 2023-04-16 15:05:59,844 ] 26 root - INFO - Entered data ingestion part 
+[ 2023-04-16 15:06:00,315 ] 29 root - INFO - Read the data as pandas dataframe
+[ 2023-04-16 15:06:00,323 ] 35 root - INFO - Train test split initiated
+[ 2023-04-16 15:06:00,330 ] 43 root - INFO - Train and test data split done and saved to path
+[ 2023-04-16 15:06:00,330 ] 52 root - INFO - Initiated data transformation 
+[ 2023-04-16 15:06:00,344 ] 57 root - INFO - Read Train and test data and saved it as pandas Dataframe
+[ 2023-04-16 15:06:00,344 ] 59 root - INFO - Obtaining Transformation object and saving a .pkl file 
+[ 2023-04-16 15:06:00,345 ] 63 root - INFO - Loaded transformation object and saved a transformation.pkl file in artifacts 
+[ 2023-04-16 15:06:00,346 ] 74 root - INFO - Applying Transformation object i.e , One hot Encoding the categorical columns and Standard Scaling the Numerical Columns
+[ 2023-04-16 15:06:00,357 ] 88 root - INFO - PERFORMED DATA TRANSFORMATION OF TRAIN AND TEST DATA INPUT FEATURES
+[ 2023-04-16 15:06:00,357 ] 90 root - INFO - RETURNED THE TRAIN , TEST Data INPUT FEATURES WITH INITIATE DATA TRANSFORMATION
