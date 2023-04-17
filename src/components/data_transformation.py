@@ -20,7 +20,7 @@ class DataTransformation():
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
-    def get_transformation_obj(self):  # Will return a data transformation object and will save it as well as a pickle file
+    def get_transformation_obj(self,train_data_path):  # Will return a data transformation object and will save it as well as a pickle file
 
         try:
             categorical_cols_names  = ['brand_name', 'model_name', 'processor_brand', 'processor_model','ram_type', 'operating_sys']
@@ -31,6 +31,14 @@ class DataTransformation():
                 ('st_scaler', StandardScaler(), numerical_cols_name)
             ])
 
+            train_df = pd.read_csv(train_data_path)
+
+            train_df_input_features = train_df.drop(['price'], axis = 1 )
+
+            trained_transformation = transformation.fit(train_df_input_features)
+
+
+
             # We will also save this fie as a .pkl file in artifacts folder:
             # E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact
 
@@ -39,9 +47,9 @@ class DataTransformation():
                 os.makedirs(save_dir)
 
             with open(os.path.join(save_dir, 'transformation.pkl'), 'wb') as f:
-                pickle.dump(transformation, f)
+                pickle.dump(trained_transformation, f)
 
-            return transformation # This is the preprocessor object that will be returned so that when called it will be applied to the data
+            return trained_transformation # This is the preprocessor object that will be returned so that when called it will be applied to the data
 
 
         except Exception as e:
@@ -58,7 +66,7 @@ class DataTransformation():
 
             logging.info("Obtaining Transformation object and saving a .pkl file ")
 
-            transformation_object = self.get_transformation_obj()
+            transformation_object = self.get_transformation_obj(train_data_path=r'src/components/artifact/train.csv')
 
             logging.info("Loaded transformation object and saved a transformation.pkl file in artifacts ")
 
@@ -78,7 +86,7 @@ class DataTransformation():
             numerical_cols_name = ['ram_size', 'ssd_size_gb', 'hdd_size_gb', 'display_size', 'warranty', 'touchscreen',
                                    'graphics_size']
 
-            input_features_train_processed_arr = transformation_object.fit_transform(input_features_train_df)
+            input_features_train_processed_arr = transformation_object.transform(input_features_train_df)
             input_features_test_processed_arr = transformation_object.transform(input_features_test_df)
 
             # train_arr = np.concatenate(input_features_train_processed_arr, np.array(target_feature_train_df))  # Our final train data that will be sent to our models
@@ -105,6 +113,6 @@ class DataTransformation():
 
 if __name__ == "__main__":
     datatrans_obj = DataTransformation()
-    datatrans_obj.get_transformation_obj()
-    datatrans_obj.initiate_data_transformation(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv',test_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\test.csv')
+    datatrans_obj.get_transformation_obj(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv')
+    print(datatrans_obj.initiate_data_transformation(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv',test_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\test.csv'))
 

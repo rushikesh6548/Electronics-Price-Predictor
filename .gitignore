@@ -1,5 +1,8 @@
 .idea
-app.py
+laptop_html_extractor.py
 random.ipynb
 venv
 /src/logs
+try.py
+random.ipynb
+logs

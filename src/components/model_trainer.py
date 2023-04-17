@@ -138,7 +138,7 @@ class ModelTrainer:
 ingestion_obj = DataIngestion()
 ingestion_obj.initiate_data_ingestion()
 datatrans_obj = DataTransformation()
-input_features_training , input_features_testing , target_features_training , target_features_testing = datatrans_obj.initiate_data_transformation(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv',test_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\test.csv')
+input_features_training , input_features_testing , target_features_training , target_features_testing = datatrans_obj.initiate_data_transformation(train_data_path=r'src/components/artifact/train.csv',test_data_path=r'src/components/artifact/test.csv')
 print(input_features_training.shape,input_features_testing.shape,target_features_training.shape,target_features_testing.shape)
 mt = ModelTrainer()
 mt.initiate_model_trainer(input_features_training , input_features_testing , target_features_training , target_features_testing)
