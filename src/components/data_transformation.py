@@ -20,7 +20,7 @@ class DataTransformation():
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
-    def get_transformation_obj(self,train_data_path):  # Will return a data transformation object and will save it as well as a pickle file
+    def get_transformation_obj(self):  # Will return a data transformation object and will save it as well as a pickle file
 
         try:
             categorical_cols_names  = ['brand_name', 'model_name', 'processor_brand', 'processor_model','ram_type', 'operating_sys']
@@ -30,6 +30,13 @@ class DataTransformation():
                 ('one_hot_encoding', OneHotEncoder(handle_unknown='ignore'),categorical_cols_names),
                 ('st_scaler', StandardScaler(), numerical_cols_name)
             ])
+
+
+
+            Script_path  = os.path.dirname(os.path.abspath(__file__))
+
+
+            train_data_path = os.path.join(Script_path,'artifact','train.csv')
 
             train_df = pd.read_csv(train_data_path)
 
@@ -42,7 +49,7 @@ class DataTransformation():
             # We will also save this fie as a .pkl file in artifacts folder:
             # E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact
 
-            save_dir = os.path.join(os.getcwd(),'E:\TUTS (Code)' ,'Python','Project','ElectronicsPricePredictionEndToEnd','src', 'components', 'artifact')
+            save_dir = os.path.join(Script_path,'artifact')
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
 
@@ -55,9 +62,15 @@ class DataTransformation():
         except Exception as e:
             raise CustomException(e,sys)
 
-    def initiate_data_transformation(self,train_data_path,test_data_path):
+    def initiate_data_transformation(self):
         try:
             logging.info("Initiated data transformation ")
+
+            Script_path = os.path.dirname(os.path.abspath(__file__))
+
+            train_data_path = os.path.join(Script_path, 'artifact', 'train.csv')
+            test_data_path = os.path.join(Script_path,'artifact','test.csv')
+
 
             train_df = pd.read_csv(train_data_path)
             test_df = pd.read_csv(test_data_path)
@@ -66,7 +79,7 @@ class DataTransformation():
 
             logging.info("Obtaining Transformation object and saving a .pkl file ")
 
-            transformation_object = self.get_transformation_obj(train_data_path=r'src/components/artifact/train.csv')
+            transformation_object = self.get_transformation_obj()
 
             logging.info("Loaded transformation object and saved a transformation.pkl file in artifacts ")
 
@@ -113,6 +126,7 @@ class DataTransformation():
 
 if __name__ == "__main__":
     datatrans_obj = DataTransformation()
-    datatrans_obj.get_transformation_obj(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv')
-    print(datatrans_obj.initiate_data_transformation(train_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\train.csv',test_data_path=r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\components\artifact\test.csv'))
+    datatrans_obj.get_transformation_obj()
+    print(datatrans_obj.get_transformation_obj())
+    print(datatrans_obj.initiate_data_transformation())
 

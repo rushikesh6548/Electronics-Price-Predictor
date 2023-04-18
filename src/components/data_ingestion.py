@@ -25,8 +25,20 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered data ingestion part ")
         try:  # For this one we are reading the data from our local files system that we scraped and saved locally
-            df = pd.read_excel(r'E:\TUTS (Code)\Python\Project\ElectronicsPricePredictionEndToEnd\src\data\main_data\final_laptop_Cleaned.xlsx')
-            logging.info("Read the data as pandas dataframe")
+
+            SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+            # Get the parent directory of the components directory
+            ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+
+
+
+            # Construct the path to the data file
+            DATA_FILE_PATH = os.path.join(ROOT_DIR, "data","main_data", "final_laptop_Cleaned.xlsx")
+
+
+            # Read the data file into a Pandas DataFrame
+            df = pd.read_excel(DATA_FILE_PATH)
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
 

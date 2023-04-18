@@ -9,3 +9,6 @@ random.ipynb
 /src/__init__.py
 __pycache__/
 /src/components/logs
+src/components/__pycache__
+src/components/__pycache__/data_ingestion.cpython-310.pyc
+src/components/__pycache__/data_transformation.cpython-310.pyc
