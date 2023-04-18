@@ -4,4 +4,5 @@ bs4
 requests
 selenium
 catboost
--e .
+sklearn
+streamlit
