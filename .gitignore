@@ -5,4 +5,7 @@ venv
 /src/logs
 try.py
 random.ipynb
-logs
+/logs
+/src/__init__.py
+__pycache__/
+/src/components/logs
