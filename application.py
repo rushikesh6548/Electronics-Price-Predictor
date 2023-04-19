@@ -16,7 +16,7 @@ class PricePredictApp:
 
         st.title("Electronics Price Prediction App")
         st.write("This app predicts electronics item prices using Machine learning ! ")
-        st.write("The complete code for this can be found here : ")
+        st.write("The complete code for this can be found here : https://github.com/rushikesh6548/End-to-End-Electronics-Price-Predictor-Using-Machine-Learning-Web-App")
         menu_selection = st.sidebar.selectbox(
             "Select an Electronics item  to predict price of :",
             ("Laptop", "Smartphone")
